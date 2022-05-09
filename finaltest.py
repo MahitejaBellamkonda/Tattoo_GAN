@@ -42,7 +42,7 @@ gen_dat = LL.get_output(gen_layers[-1], deterministic=False)
 
 # specify supervised model
 layers = [LL.InputLayer(shape=(None, 28**2))]
-layers.append(nn.GaussianNoiseLayer(layers[-1], sigma=0.3))
+layers.append(tf.nn.GaussianNoiseLayer(layers[-1], sigma=0.3))
 layers.append(nn.DenseLayer(layers[-1], num_units=1000))
 layers.append(nn.GaussianNoiseLayer(layers[-1], sigma=0.5))
 layers.append(nn.DenseLayer(layers[-1], num_units=500))
